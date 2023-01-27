@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Sefrancois/eslint-plugin/compare/v1.2.0...v1.2.1) (2023-01-27)
+
+
+### Miscellaneous Chores
+
+* added missing repository into package.json ([53d751d](https://github.com/Sefrancois/eslint-plugin/commit/53d751d7a9320281ffb9607a8f6672e81d12ab74))
+
 ## [1.2.0](https://github.com/Sefrancois/eslint-plugin/compare/v1.1.2...v1.2.0) (2023-01-27)
 
 
