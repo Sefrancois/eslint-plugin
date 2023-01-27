@@ -15,40 +15,31 @@ export class NoCrossDomainImport {
 	}
 
 	public static checkNoCrossDomainImport(context: Rule.RuleContext, node: ImportDeclaration & Rule.NodeParentExtension): void {
-		const domainsConfiguration = context.options[0];
-		const currentFileDomain = this.getDomain(context.getPhysicalFilename(), domainsConfiguration);
-		const currentImportDomain = this.getDomain(<string>node.source.value, domainsConfiguration);
+		const domainsConfiguration = <Array<DomainConfiguration>>context.options[0];
+		const configuredDomainsNameToCheck = domainsConfiguration.map((domainConfiguration) => domainConfiguration.domain);
+		const currentFileDomain = this.getDomain(context.getPhysicalFilename(), configuredDomainsNameToCheck);
 
-		if(this.importIsFromAnotherDomainThanFileOne(currentFileDomain, currentImportDomain, domainsConfiguration)) {
-			context.report({ node, message: this.message });
+		if (currentFileDomain) {
+			const excludedDomainsForCurrentOne = this.getDomainsToExcludeForCurrentDomain(domainsConfiguration, currentFileDomain);
+
+			if (this.getDomain(<string>node.source.value, excludedDomainsForCurrentOne)) {
+				context.report({ node, message: this.message });
+			}
 		}
 	}
 
-	private static getDomain(currentString: string, domainsConfiguration: Array<DomainConfiguration> = []): string {
-		const domains = domainsConfiguration.map((subcontextConfiguration) => subcontextConfiguration.domain);
+	private static getDomain(currentString: string, domains: Array<string> = []): string | null {
 		for (const domain of domains) {
 			if (currentString.match(domain)) {
 				return domain;
 			}
 		}
-		return "";
+		return null;
 	}
 
-	private static importIsFromAnotherDomainThanFileOne(
-		currentFileDomain: string,
-		currentImportDomain: string,
-		domainsConfiguration: Array<DomainConfiguration>,
-	): boolean {
-		const domainImportsToExclude = this.getDomainsToExcludeForCurrentDomain(domainsConfiguration, currentFileDomain)?.domainsToExclude;
-
-		if (!domainImportsToExclude) {
-			return false;
-		}
-
-		return (domainImportsToExclude.includes(currentImportDomain) && currentImportDomain !== currentFileDomain);
-	}
-
-	private static getDomainsToExcludeForCurrentDomain(domainsConfiguration: Array<DomainConfiguration>, currentFileDomain: string) {
-		return domainsConfiguration.find((domainConfiguration) => domainConfiguration.domain === currentFileDomain);
+	private static getDomainsToExcludeForCurrentDomain(domainsConfiguration: Array<DomainConfiguration>, currentFileDomain: string): Array<string> | undefined {
+		return domainsConfiguration
+			.find((domainConfiguration) => domainConfiguration.domain === currentFileDomain)
+			?.domainsToExclude;
 	}
 }
