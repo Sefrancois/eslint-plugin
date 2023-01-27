@@ -43,7 +43,7 @@ that way :
 {
   // ...
   "plugins": [
-    "@1j1s"
+    "@sefr"
   ],
   "rules": {
     "@sefr/no-cross-domain-import": [
@@ -107,7 +107,7 @@ Why is the above code invalid ? Because the only import is from an other domain 
 {
   // ...
   "plugins": [
-    "@1j1s"
+    "@sefr"
   ],
   "rules": {
     "@sefr/no-cross-domain-import": "error"
