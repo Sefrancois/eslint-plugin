@@ -39,7 +39,7 @@ describe("NoCrossDomainImport", () => {
 		});
 	});
 
-	describe("When current file belongs to some identified domain", () => {
+	context("When current file belongs to some identified domain", () => {
 		context("and that an import comes from another domain than ones specified", () => {
 			it("does nothing", () => {
 				// Given
@@ -73,6 +73,25 @@ describe("NoCrossDomainImport", () => {
 				// Then
 				expect(ruleContext.report).to.have.been.calledOnceWithExactly({ node, message });
 			});
+		});
+	});
+
+	context("When no configuration is provided", () => {
+		it("does nothing", () => {
+			// Given
+			const notIdentifiedDomain = "some-unidentified-domain";
+			ruleContext = stubInterface<Rule.RuleContext>(sinon);
+			ruleContext.getPhysicalFilename.returns(`root/${notIdentifiedDomain}/path/to/some/file.ts`);
+			// @ts-ignore
+			ruleContext.options = undefined;
+			node = stubInterface<ImportDeclaration & Rule.NodeParentExtension>(sinon);
+			node.source.value = "import { Something } from \"root/directory/to/subscription/path/to/some/other/file.ts\"";
+
+			// When
+			NoCrossDomainImport.checkNoCrossDomainImport(ruleContext, node);
+
+			// Then
+			expect(ruleContext.report).to.not.have.been.called;
 		});
 	});
 });

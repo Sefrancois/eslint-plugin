@@ -16,7 +16,7 @@ export class NoCrossDomainImport {
 
 	public static checkNoCrossDomainImport(context: Rule.RuleContext, node: ImportDeclaration & Rule.NodeParentExtension): void {
 		const domainsConfiguration = <Array<DomainConfiguration>>context.options[0];
-		const configuredDomainsNameToCheck = domainsConfiguration.map((domainConfiguration) => domainConfiguration.domain);
+		const configuredDomainsNameToCheck = domainsConfiguration?.map((domainConfiguration) => domainConfiguration.domain);
 		const currentFileDomain = this.getDomain(context.getPhysicalFilename(), configuredDomainsNameToCheck);
 
 		if (currentFileDomain) {
