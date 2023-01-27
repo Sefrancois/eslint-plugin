@@ -35,8 +35,8 @@ npm i -S @sefr/eslint-plugin
 
 ### @sefr/no-cross-sub-context-import
 
-Rule to check if an import is made from another subcontext than the one of the current file. This rule will check if 
-import path in a related subcontext is matching one of the forbidden subcontext's names you can provide to the rule
+Rule to check if an import is made from another domain than the one of the current file. This rule will check if 
+import path in a related domain is matching one of the excluded domain's names you can provide to the rule
 that way :
 
 ```json
@@ -46,12 +46,16 @@ that way :
     "@1j1s"
   ],
   "rules": {
-    "@sefr/no-cross-subcontext-import": [
+    "@sefr/no-cross-domain-import": [
       "error",
       [
         {
-          "namedSubContext": "my-first-sub-context",
-          "forbiddenSubContextImport": ["my-second-sub-context"]
+          "domain": "my-first-domain",
+          "domainsToExclude": ["my-second-domain"]
+        },
+        {
+          "domain": "my-second-domain",
+          "domainsToExclude": ["my-first-domain"]
         }
       ]
     ]
@@ -64,36 +68,36 @@ What does this above description mean ?
 - Rule is defined as an array ;
 - First argument is the rule criticality level for `ESLint`. In the above example, rule criticality level is `"error"` ;
 - Second argument is an array of object containing two properties :
-  - `"namedSubContext"` is the name of the subcontext you want to check cross-import from ;
-  - `"forbiddenSubContextImport"` is an array of names of the subcontexts you want to forbid an import for the subcontext.
+  - `"domain"` is the name of the domain you want to check cross-import from ;
+  - `"domainsToExclude"` is an array of names of the domains you want to forbid an import from.
 
-✅ Valid code example with the above rule :
+✅ ESLint will not report an error for the following code :
 
 ```typescript
 /*
- Admit current file path is "/path/to/my-first-sub-context/file-name.ts"
- Admit current subcontext name is "my-first-sub-context"
+ Admit current file path is "/path/to/my-first-domain/file-name.ts"
+ Admit current subcontext name is "my-first-domain"
  */
-import { doSomething } from "src/path/to/my-first-sub-context/do-something.ts";
+import { doSomething } from "src/path/to/my-first-domain/do-something.ts";
 
 const toto: string = doSomething(true);
 ```
 
-Why is the above code valid ? Because the only import is from the same subcontext than the file.
+Why is the above code valid ? Because the only import is from the same domain than the file.
 
-❌ Invalid code example :
+❌ ESLint will report an error for the following code :
 
 ```typescript
 /*
- Admit current file path is "/path/to/my-first-sub-context/file-name.ts"
- Admit current subcontext name is "my-first-sub-context"
+ Admit current file path is "/path/to/my-first-domain/file-name.ts"
+ Admit current subcontext name is "my-first-domain"
  */
-import { doSomething } from "src/path/to/my-second-sub-context/do-something.ts";
+import { doSomething } from "src/path/to/my-second-domain/do-something.ts";
 
 const toto: string = doSomething(true);
 ```
 
-Why is the above code invalid ? Because the only import is from an other subcontext than the file.
+Why is the above code invalid ? Because the only import is from an other domain than the file.
 
 ## Incorrect usages ❌
 
@@ -106,12 +110,12 @@ Why is the above code invalid ? Because the only import is from an other subcont
     "@1j1s"
   ],
   "rules": {
-    "@sefr/no-cross-subcontext-import": "error"
+    "@sefr/no-cross-domain-import": "error"
   }
 }
 ```
 
-To be honest, it'll work. But as you didn't define any subcontext, it won't report any code style error within ESLint.
+To be honest, it'll work. But as you didn't define any domain, it won't report any code style error within ESLint.
 
 ## Credits 📎
 
