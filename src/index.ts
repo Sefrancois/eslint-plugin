@@ -1,9 +1,9 @@
-import { NoCrossSubContextImport } from "./no-cross-sub-context-import";
+import { NoCrossDomainImport } from "./no-cross-domain-import";
 
 module.exports = {
 	rules: {
 		"no-cross-subcontext-import": {
-			create: NoCrossSubContextImport.create,
+			create: NoCrossDomainImport.create,
 			meta: {
 				docs: {
 					description: "Avoid cross-subcontext import which can lead to strong coupling across the application",
