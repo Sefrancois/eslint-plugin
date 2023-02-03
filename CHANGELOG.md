@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Sefrancois/eslint-plugin/compare/v1.2.1...v1.3.0) (2023-02-03)
+
+
+### Features
+
+* **rule:** added hexagonal architecture rule for eslint ([be04ad6](https://github.com/Sefrancois/eslint-plugin/commit/be04ad6fd8b623fe90024fadd88710d451926223))
+
 ## [1.2.1](https://github.com/Sefrancois/eslint-plugin/compare/v1.2.0...v1.2.1) (2023-01-27)
 
 
