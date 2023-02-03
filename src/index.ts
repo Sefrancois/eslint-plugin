@@ -11,7 +11,7 @@ module.exports = {
 					recommended: false,
 				},
 				type: "problem",
-			}
+			},
 		},
 		"no-cross-domain-import": {
 			create: NoCrossDomainImport.create,
