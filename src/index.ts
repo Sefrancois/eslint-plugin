@@ -1,4 +1,5 @@
 import { NoCrossDomainImport } from "./no-cross-domain-import";
+import { NoHexagonalArchitectureViolation } from "./no-hexagonal-architecture-violation";
 import { NoOnionArchitectureViolation } from "./no-onion-architecture-violation";
 
 module.exports = {
@@ -8,6 +9,16 @@ module.exports = {
 			meta: {
 				docs: {
 					description: "Avoid major Onion architecture violation",
+					recommended: false,
+				},
+				type: "problem",
+			},
+		},
+		"no-hexagonal-architecture-violation": {
+			create: NoHexagonalArchitectureViolation.create,
+			meta: {
+				docs: {
+					description: "Avoid major Hexagonal architecture violation",
 					recommended: false,
 				},
 				type: "problem",
