@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/Sefrancois/eslint-plugin/compare/v1.3.0...v1.3.1) (2023-02-03)
+
+
+### Continuous Integration
+
+* patch for npm doc ([465420e](https://github.com/Sefrancois/eslint-plugin/commit/465420e534af2359244ddb989cab996af7ca2dd1))
+
 ## [1.3.0](https://github.com/Sefrancois/eslint-plugin/compare/v1.2.1...v1.3.0) (2023-02-03)
 
 
