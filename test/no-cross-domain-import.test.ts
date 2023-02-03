@@ -1,8 +1,8 @@
 import { StubbedType } from "@salesforce/ts-sinon";
+import { expect, sinon, stubInterface } from "@sefr/test";
 import { Rule } from "eslint";
 import { ImportDeclaration } from "estree";
 import { DomainConfiguration, NoCrossDomainImport } from "../src/no-cross-domain-import";
-import { expect, sinon, stubInterface } from "./configuration";
 
 let ruleContext: StubbedType<Rule.RuleContext>;
 let node: StubbedType<ImportDeclaration & Rule.NodeParentExtension>;

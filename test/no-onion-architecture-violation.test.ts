@@ -1,4 +1,4 @@
-import { expect, sinon, StubbedType, stubInterface } from "./configuration";
+import { expect, sinon, StubbedType, stubInterface } from "@sefr/test";
 import { Rule } from "eslint";
 import { ImportDeclaration } from "estree";
 import { NoOnionArchitectureViolation } from "../src/no-onion-architecture-violation";
