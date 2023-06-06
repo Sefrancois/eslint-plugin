@@ -22,14 +22,14 @@
   "author": "SEFR",
   "license": "MIT",
   "devDependencies": {
-    "@sefr/test": "~1.2.3",
-    "@types/eslint": "~8.37.0",
+    "@sefr/test": "~1.2.5",
+    "@types/eslint": "~8.40.0",
     "@types/estree": "~1.0.0",
     "@types/mocha": "~10.0.1",
-    "eslint": "~8.40.0",
+    "eslint": "~8.42.0",
     "mocha": "~10.2.0",
     "ts-node": "~10.9.1",
     "tsup": "~6.7.0",
-    "typescript": "~5.0.4"
+    "typescript": "~5.1.3"
   }
 }
