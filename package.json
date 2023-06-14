@@ -22,8 +22,8 @@
   "author": "SEFR",
   "license": "MIT",
   "devDependencies": {
-    "@sefr/test": "~1.2.5",
-    "@types/eslint": "~8.40.0",
+    "@sefr/test": "~1.2.6",
+    "@types/eslint": "~8.40.2",
     "@types/estree": "~1.0.0",
     "@types/mocha": "~10.0.1",
     "eslint": "~8.42.0",
