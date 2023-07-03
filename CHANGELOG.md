@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.7](https://github.com/Sefrancois/eslint-plugin/compare/v1.3.6...v1.3.7) (2023-07-03)
+
+
+### deps
+
+* updated dependencies ([cff0ac4](https://github.com/Sefrancois/eslint-plugin/commit/cff0ac4a7eb955fd562442df109b03f17daeec20))
+
 ## [1.3.6](https://github.com/Sefrancois/eslint-plugin/compare/v1.3.5...v1.3.6) (2023-06-14)
 
 
