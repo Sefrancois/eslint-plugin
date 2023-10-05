@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --no-splitting --minify",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && npm test",
     "test": "mocha"
   },
   "keywords": [
@@ -22,11 +22,11 @@
   "author": "SEFR",
   "license": "MIT",
   "devDependencies": {
-    "@sefr/test": "~1.2.10",
-    "@types/eslint": "~8.44.2",
-    "@types/estree": "~1.0.0",
-    "@types/mocha": "~10.0.1",
-    "eslint": "~8.49.0",
+    "@sefr/test": "~1.2.11",
+    "@types/eslint": "~8.44.3",
+    "@types/estree": "~1.0.2",
+    "@types/mocha": "~10.0.2",
+    "eslint": "~8.50.0",
     "mocha": "~10.2.0",
     "ts-node": "~10.9.1",
     "tsup": "~7.2.0",
