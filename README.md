@@ -39,7 +39,7 @@ npm i -S @sefr/eslint-plugin
 ## 📎 Credits
 
 + Developed with the awesome [TypeScript](https://www.typescriptlang.org/)
-+ Tested with [Mocha](https://mochajs.org/), [Chai](https://www.chaijs.com/) and [Sinon](https://sinonjs.org/)
++ Tested with [Vitest](https://vitest.dev/)
 
 ## 📜 License
 
