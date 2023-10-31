@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.13](https://github.com/Sefrancois/eslint-plugin/compare/v1.3.12...v1.3.13) (2023-10-31)
+
+
+### Tests
+
+* replaced mocha chai sinon with vitest ([c64cc17](https://github.com/Sefrancois/eslint-plugin/commit/c64cc17fe67800b77d04535a7bba6903eaa65a67))
+
 ## [1.3.12](https://github.com/Sefrancois/eslint-plugin/compare/v1.3.11...v1.3.12) (2023-10-30)
 
 
